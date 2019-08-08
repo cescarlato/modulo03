@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('appointements', {
+    return queryInterface.createTable('appointments', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -8,19 +8,19 @@ module.exports = {
         primaryKey: true,
       },
       date: {
-        type: Sequelize.DATE,
         allowNull: false,
+        type: Sequelize.DATE,
       },
       user_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'files', key: 'id' },
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
       },
       provider_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'files', key: 'id' },
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
